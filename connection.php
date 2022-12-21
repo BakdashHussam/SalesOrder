@@ -1,0 +1,27 @@
+<?php
+// 	'dsn' => 'sqlsrv:Server=164.52.2.140,1433;Database=sales_order',
+
+	//$hbhost = '';
+	$hbhost = '';
+	$hbdatabase = '';
+	$hbuser = '';
+	$hbpassword = '';
+	//$hbdb = sqlsrv_connect($hbhost, $hbuser, $hbpassword, $hbdatabase);
+	
+	$serverName = "\\sqlexpress, 1433"; //serverName\instanceName, portNumber (default is 1433)
+	$connectionInfo = array( "Database"=>$hbdatabase, "UID"=>$hbuser, "PWD"=>$hbpassword);
+	$hbdb = sqlsrv_connect( $serverName, $connectionInfo);
+	//$sSQL= 'SET NAMES utf8'; 
+
+	//mysqli_query($hbdb,$sSQL)
+	
+	if( $hbdb ) {
+		 echo "Connection established.<br />";
+	}else{
+		 echo "Connection could not be established.<br />";
+		 die( print_r( sqlsrv_errors(), true));
+	}
+	//echo "Connected successfully";
+	//echo "<br>";
+
+?>
